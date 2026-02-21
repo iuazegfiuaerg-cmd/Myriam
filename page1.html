@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Pardon - Myriam ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rose-pale: #ffe4e1;
+            --rouge-passion: #e63946;
+            --vert: #2ecc71;
+        }
+        body { margin: 0; background: #fff5f5; font-family: 'Montserrat', sans-serif; text-align: center; }
+        
+        nav { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: white; padding: 10px 25px; border-radius: 50px; z-index: 3000; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        nav a { text-decoration: none; color: var(--rouge-passion); font-weight: 600; margin: 0 15px; }
+
+        .container { max-width: 700px; margin: 0 auto; padding: 100px 20px; }
+        .message-box { background: white; padding: 35px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); line-height: 1.8; text-align: justify; margin-bottom: 50px; }
+        
+        .coupon-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .coupon { background: white; border: 2px dashed var(--rouge-passion); padding: 15px; border-radius: 10px; font-weight: 600; color: var(--rouge-passion); cursor: pointer; transition: 0.3s; }
+        .coupon.selected { border-style: solid; border-color: var(--vert); background: #e8f8f0; color: var(--vert); transform: scale(0.95); }
+        
+        .emoji-pop { position: fixed; pointer-events: none; z-index: 5000; animation: floatUp 1.5s forwards; }
+        @keyframes floatUp { to { transform: translateY(-150px) rotate(360deg); opacity: 0; } }
+        h1 { font-family: 'Dancing Script', cursive; font-size: 3rem; color: var(--rouge-passion); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Notre Histoire</a>
+        <a href="page1.html">Espace Pardon 🥺</a>
+    </nav>
+
+    <div class="container">
+        <h1>Je suis désolé... 🥺</h1>
+        <div class="message-box">
+            Myriam, je m'en veux terriblement pour cette semaine. J'ai conscience que je n'ai pas été à la hauteur alors que c'était dur pour toi. Laisse-moi me rattraper avec ces quelques bons... Choisis ta vengeance 😈
+        </div>
+
+        <div class="coupon-grid">
+            <div class="coupon" onclick="selectCoupon(this, '💆‍♂️')">🎟️ Un massage de 30 min</div>
+            <div class="coupon" onclick="selectCoupon(this, '🍔')">🍔 Ton fast-food livré</div>
+            <div class="coupon" onclick="selectCoupon(this, '🍿')">🍿 Soirée film sans râler</div>
+            <div class="coupon" onclick="selectCoupon(this, '🫂')">🫂 Un câlin infini</div>
+        </div>
+
+        <p style="margin-top: 50px;"><a href="index.html" style="color: var(--rouge-passion); text-decoration: none; font-weight: bold;">← Retourner à notre histoire ❤️</a></p>
+    </div>
+
+    <script>
+        function selectCoupon(el, emoji) {
+            el.classList.add('selected');
+            for(let i=0; i<15; i++) {
+                const p = document.createElement('div');
+                p.innerHTML = emoji;
+                p.className = 'emoji-pop';
+                p.style.left = (event.clientX - 10 + Math.random() * 40) + 'px';
+                p.style.top = (event.clientY - 10 + Math.random() * 40) + 'px';
+                p.style.fontSize = '25px';
+                document.body.appendChild(p);
+                setTimeout(() => p.remove(), 1500);
+            }
+        }
+    </script>
+</body>
+</html>
