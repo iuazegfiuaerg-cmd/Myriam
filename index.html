@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veux-tu être ma Valentine ? ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rose-pale: #ffe4e1;
+            --rouge-passion: #e63946;
+            --rouge-sombre: #b91d2a;
+            --blanc: #ffffff;
+        }
+
+        /* MENU DE NAVIGATION */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            z-index: 3000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid var(--rose-pale);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--rouge-passion);
+            font-weight: 600;
+            margin: 0 15px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover { opacity: 0.6; }
+
+        .section-page { display: none; }
+        .section-page.active { display: block; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #fce4ec 0%, #fff5f5 50%, #f8bbd0 100%);
+            font-family: 'Montserrat', sans-serif;
+            color: #444;
+            overflow-x: hidden;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 6px;
+            background: var(--rouge-passion);
+            z-index: 2000;
+            width: 0%;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 0;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.2s ease-out;
+        }
+
+        .page.visible { opacity: 1; transform: translateY(0); }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--rouge-passion);
+            text-align: center;
+            text-shadow: 0 0 10px rgba(230, 57, 70, 0.1);
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+            line-height: 1.8;
+            border: 1px solid var(--rose-pale);
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .photo-card {
+            background: white;
+            padding: 12px 12px 35px 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+            margin: 20px auto;
+            max-width: 280px;
+            transform: rotate(var(--rotation));
+            transition: transform 0.5s ease;
+        }
+
+        .photo-card img { width: 100%; height: auto; border-radius: 2px; }
+
+        .scratch-container {
+            position: relative;
+            width: 300px;
+            height: 100px;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .scratch-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            color: var(--rouge-passion);
+            padding: 10px;
+        }
+
+        #scratch-canvas { position: absolute; top: 0; left: 0; cursor: crosshair; touch-action: none; }
+
+        .btn-love {
+            background: linear-gradient(45deg, var(--rouge-passion), var(--rouge-sombre));
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            border: none;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
+        }
+
+        .cursor-heart { position: fixed; pointer-events: none; color: var(--rouge-passion); z-index: 3000; font-size: 20px; }
+        .heart-rain { position: fixed; top: -10%; z-index: 2500; animation: fall linear forwards; }
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+
+        .highlight { color: var(--rouge-passion); font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="myBar"></div>
+
+    <div class="container">
+        
+        <section class="page visible">
+            <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.7rem; opacity: 0.6;">Dossier réservé à ma femme</p>
+            <h1>Myriam, mon évidence...</h1>
+            <div class="message-box">
+                J'ai voulu faire les choses bien pour notre première Saint-Valentin dans cette nouvelle étape de notre vie. Scrolle doucement, j'ai quelque chose d'important à te demander au bout du chemin.
+            </div>
+        </section>
+
+        <section class="page">
+            <div class="photo-card" style="--rotation: -2deg;"><img src="image1.jpeg"></div>
+            <div class="message-box">
+                Quand je vois ces photos, je me dis que j'ai vraiment braqué la banque du bonheur. T'es magnifique, t'es brillante, et tu me supportes... c'est limite un super-pouvoir à ce niveau-là.
+            </div>
+            <div class="photo-card" style="--rotation: 3deg;"><img src="image2.jpeg"></div>
+        </section>
+
+        <section class="page">
+            <div class="message-box">
+                Au-delà des rires et de ta cuisine (qui me sauve la vie, soyons honnêtes), ce que je ressens pour toi est devenu tellement plus profond. Pouvoir t'embrasser et me dire que <span class="highlight">tu es mienne</span>, c'est tout ce qui compte pour moi. Tu as changé ma vision de l'avenir : maintenant, je ne le vois plus sans toi.
+            </div>
+        </section>
+
+        <section class="page">
+            <div class="photo-card" style="--rotation: -3deg;"><img src="image3.jpeg"></div>
+            <div class="message-box">
+                À 18 ans, on nous dit qu'on a le temps, mais moi je n'ai pas envie de perdre une seconde. Je t'appartiens corps et âme. T'es ma partenaire, ma complice, ma Valentine pour cette année... et pour toutes les prochaines.
+            </div>
+            <div class="photo-card" style="--rotation: 2deg;"><img src="image4.jpeg"></div>
+        </section>
+
+        <section class="page">
+            <h1>Une dernière chose... 📝</h1>
+            <div class="message-box">
+                Pour que ce soit officiel et que je puisse crâner devant tout le monde... <br><strong>Gratte ici pour découvrir ma question :</strong>
+            </div>
+            <div class="scratch-container">
+                <div class="scratch-text">Myriam, veux-tu être ma Valentine pour toujours ? ❤️</div>
+                <canvas id="scratch-canvas" width="300" height="100"></canvas>
+            </div>
+            <button class="btn-love" onclick="createHeartRain()">OUI, JE LE VEUX ❤️</button>
+            <p style="margin-top: 30px; opacity: 0.6; font-weight: 600;">Ton futur mari qui t'aime à la folie.</p>
+        </section>
+
+    </div>
+
+    <script>
+        const obs = new IntersectionObserver((es) => {
+            es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.page').forEach(p => obs.observe(p));
+
+        window.onscroll = () => {
+            let s = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById("myBar").style.width = s + "%";
+        };
+
+        const cvs = document.getElementById('scratch-canvas');
+        const ct = cvs.getContext('2d');
+        ct.fillStyle = '#C0C0C0'; ct.fillRect(0,0,300,100);
+        ct.fillStyle = '#FFF'; ct.font = '14px Montserrat'; ct.textAlign = 'center';
+        ct.fillText('Gratte pour voir ton cadeau...', 150, 55);
+
+        let draw = false;
+        const scratch = (e) => {
+            if(!draw) return;
+            const r = cvs.getBoundingClientRect();
+            const x = (e.clientX || (e.touches ? e.touches[0].clientX : 0)) - r.left;
+            const y = (e.clientY || (e.touches ? e.touches[0].clientY : 0)) - r.top;
+            ct.globalCompositeOperation = 'destination-out';
+            ct.beginPath(); ct.arc(x,y,20,0,Math.PI*2); ct.fill();
+        };
+        cvs.onmousedown = cvs.ontouchstart = () => draw = true;
+        window.onmouseup = window.ontouchend = () => draw = false;
+        cvs.onmousemove = cvs.ontouchmove = scratch;
+
+        document.onmousemove = (e) => {
+            if(Math.random()>0.92){
+                const h = document.createElement('div');
+                h.innerHTML = '❤️'; h.className = 'cursor-heart';
+                h.style.left = e.clientX + 'px'; h.style.top = e.clientY + 'px';
+                h.animate([{opacity:1}, {opacity:0, transform:'translateY(-30px)'}], 1000);
+                document.body.appendChild(h);
+                setTimeout(() => h.remove(), 1000);
+            }
+        };
+
+        function createHeartRain() {
+            const icons = ['❤️', '💍', '✨', '🌹', '💖'];
+            for (let i = 0; i < 120; i++) {
+                setTimeout(() => {
+                    const h = document.createElement('div');
+                    h.className = 'heart-rain';
+                    h.innerHTML = icons[Math.floor(Math.random()*icons.length)];
+                    h.style.left = Math.random()*100+'vw';
+                    h.style.animationDuration = (Math.random()*2+2)+'s';
+                    h.style.fontSize = (Math.random()*20+20)+'px';
+                    document.body.appendChild(h);
+                }, i * 25);
+            }
+        }
+    </script>
+</body>
+</html>
