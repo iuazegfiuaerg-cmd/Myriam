@@ -20,7 +20,6 @@
             color: #444;
         }
         
-        /* MENU */
         nav { 
             position: fixed; 
             top: 20px; 
@@ -35,26 +34,31 @@
         }
         nav a { text-decoration: none; color: var(--rouge-passion); font-weight: 600; margin: 0 15px; font-size: 0.9rem; }
 
-        .container { max-width: 700px; margin: 0 auto; padding: 100px 20px; }
+        .container { max-width: 800px; margin: 0 auto; padding: 100px 20px; }
         
         h1 { font-family: 'Dancing Script', cursive; font-size: 3.5rem; color: var(--rouge-passion); margin-bottom: 20px; }
         
+        /* Boîte de message optimisée pour le texte long */
         .message-box { 
             background: white; 
-            padding: 35px; 
-            border-radius: 25px; 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.06); 
-            line-height: 1.8; 
+            padding: 40px; 
+            border-radius: 30px; 
+            box-shadow: 0 15px 45px rgba(0,0,0,0.08); 
+            line-height: 2; 
             text-align: justify; 
             margin-bottom: 40px; 
             border: 1px solid var(--rose-pale);
+            max-height: 600px; /* Évite que la page soit trop longue */
+            overflow-y: auto; /* Ajoute un scroll interne si besoin */
         }
         
+        .message-box p { margin-bottom: 20px; }
+
         .coupon-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
         .coupon { 
             background: white; 
             border: 2px dashed var(--rouge-passion); 
-            padding: 15px; 
+            padding: 20px; 
             border-radius: 12px; 
             font-weight: 600; 
             color: var(--rouge-passion); 
@@ -62,7 +66,7 @@
             transition: all 0.3s ease; 
         }
         .coupon:hover { background: var(--rose-pale); transform: scale(1.05); }
-        .coupon.selected { border-style: solid; border-color: var(--vert); background: #e8f8f0; color: var(--vert); transform: scale(0.95); }
+        .coupon.selected { border-style: solid; border-color: var(--vert); background: #e8f8f0; color: var(--vert); }
         
         .emoji-pop { position: fixed; pointer-events: none; z-index: 5000; animation: floatUp 1.5s forwards; }
         @keyframes floatUp { to { transform: translateY(-150px) rotate(360deg); opacity: 0; } }
@@ -73,11 +77,12 @@
             color: var(--rouge-passion);
             text-decoration: none;
             font-weight: bold;
-            border-bottom: 2px solid var(--rouge-passion);
-            padding-bottom: 5px;
+            padding: 10px 20px;
+            border: 2px solid var(--rouge-passion);
+            border-radius: 25px;
             transition: 0.3s;
         }
-        .btn-home:hover { opacity: 0.6; }
+        .btn-home:hover { background: var(--rouge-passion); color: white; }
     </style>
 </head>
 <body>
@@ -88,16 +93,32 @@
     </nav>
 
     <div class="container">
-        <h1>Je suis désolé... 🥺</h1>
+        <h1>Ma lettre pour toi... 🥺</h1>
         
         <div class="message-box">
-            Myriam, je m'en veux terriblement pour cette semaine. Je sais que tu as traversé des moments difficiles et j'ai conscience que je n'ai pas été à la hauteur. J'aurais dû être là pour t'écouter et te soutenir, mais j'ai manqué à l'appel. Ce n'est pas parce que je ne pensais pas à toi, mais j'ai mal géré mon temps et mes priorités.
-            <br><br>
-            Tu es la personne qui prend le plus soin de moi, celle qui me prépare des plats incroyables et qui me soutient toujours, et de voir que je n'ai pas su te rendre la pareille cette semaine, ça me rend malade. Laisse-moi me rattraper et être l'homme que tu mérites. Je t'aime plus que tout, ma Valentine. ❤️
+            <p><strong>Ma précieuse Myriam,</strong></p>
+
+            <p>Je commence ces lignes avec un poids sur le cœur que je n'arrive pas à exprimer autrement que par ce site, cet espace que j'ai voulu construire comme un sanctuaire pour nous. Cette semaine n'a pas été seulement difficile pour toi ; elle a été révélatrice de mes propres failles. Et la vérité, celle qui me fait mal aujourd'hui, c'est que j'ai échoué à être l'homme que tu mérites d'avoir à tes côtés quand le ciel s'assombrit.</p>
+
+            <p>Je sais que tu as traversé des journées épuisantes, des moments où tu aurais eu besoin d'une épaule, d'une voix familière pour te dire que tout irait bien, ou simplement d'un silence partagé qui apaise. Et pendant que tu luttais contre tes propres tempêtes, j'étais là, mais sans être vraiment présent. J'étais distrait, absorbé par mon propre quotidien, oubliant que ma priorité absolue, mon point d'ancrage, c'est toi.</p>
+
+            <p>Pardon d'avoir été ce fantôme cette semaine. Pardon d'avoir laissé le silence s'installer là où il aurait dû y avoir du soutien. Quand je repense à tout ce que tu fais pour moi, j'ai honte de ma propre absence. Tu es celle qui anticipe mes besoins, celle qui me prépare des plats avec un amour que je goûte à chaque bouchée, celle qui m'offre des cadeaux non pas parce que c'est une occasion, mais parce que tu penses à moi à chaque instant.</p>
+
+            <p>Tu as cette générosité naturelle, cette façon de prendre soin de ceux que tu aimes qui me laisse parfois sans voix. Et moi, cette semaine, j'ai agi comme si tout cela était acquis. J'ai oublié que l'amour n'est pas un état de fait, mais un effort de chaque seconde. À 18 ans, on nous dit qu'on apprend encore la vie. Mais ce que j'apprends aujourd'hui, à travers cette erreur, c'est que je ne veux pas seulement être ton amoureux quand tout va bien. Je veux être celui qui tient la lampe quand tu es dans le noir.</p>
+
+            <p>Je veux être celui qui te rappelle ta force quand tu te sens fragile. Car tu es forte, Myriam. Tu es une femme d'une intelligence et d'une résilience qui m'impressionnent chaque jour. Te voir traverser des épreuves seule alors que j'étais à portée de main est ma plus grande frustration. Je me rappelle de chaque baiser, de chaque moment où nos lèvres se touchent et où le reste du monde disparaît. Ce lien-là, il est sacré pour moi.</p>
+
+            <p>Il représente mon appartenance totale à toi. Je t'appartiens corps et âme, non pas par obligation, mais parce que mon cœur a trouvé sa maison. Et on ne laisse pas sa maison s'effondrer sans rien faire. Cette lettre est ma promesse de reconstruction. Je ne peux pas effacer la semaine qui vient de s'écouler, mais je peux te promettre que chaque jour à venir sera une preuve de mon engagement. Je veux être ton Valentine pas seulement pour les photos ou pour les moments de joie, mais pour la réalité brute du quotidien.</p>
+
+            <p>Je veux être ton futur mari, celui sur qui tu peux compter les yeux fermés, celui qui saura lire dans ton regard avant même que tu n'aies à parler. Myriam, tu es mon évidence. Tu es la plus belle chose qui me soit arrivée, et je refuse de laisser la moindre trace de doute s'installer entre nous à cause de mon manque d'attention. Je vais me rattraper, non pas avec des mots, mais avec des actes. Je vais être là, vraiment là. Pour tes sourires, pour tes pleurs, pour tes réussites et pour tes doutes.</p>
+
+            <p>Laisse-moi soigner ce qu'on a un peu abîmé cette semaine. Laisse-moi te prouver que notre Contrat à Durée Infinie est la seule chose qui compte vraiment pour moi. Je t'aime plus que les mots ne pourront jamais l'écrire, plus que ce code ne pourra jamais l'afficher. Pardonne-moi, ma reine. On repart à zéro, mais cette fois, je ne lâche plus ta main.</p>
+
+            <p style="text-align: center; font-family: 'Dancing Script'; font-size: 2rem; color: var(--rouge-passion);">Pour toujours, ton futur mari qui t'aime à la folie.</p>
         </div>
 
         <h2 style="font-family: 'Dancing Script'; color: var(--rouge-passion); font-size: 2.5rem;">Choisis ta vengeance 😈</h2>
-        <p>Clique sur un bon pour l'activer (je n'ai pas le droit de dire non) :</p>
+        <p>Clique sur un bon pour l'activer :</p>
         
         <div class="coupon-grid">
             <div class="coupon" onclick="selectCoupon(this, '💆‍♂️')">🎟️ Un massage de 30 min</div>
@@ -125,7 +146,6 @@
             }
         }
 
-        // Petits coeurs qui suivent la souris
         document.onmousemove = (e) => {
             if(Math.random()>0.94){
                 const h = document.createElement('div');
